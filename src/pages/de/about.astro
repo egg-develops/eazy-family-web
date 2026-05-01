@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Über uns" description="Das Familienleben besteht aus vielen Teilen – wir haben Eazy.Family entwickelt, um alles an einem privaten, ruhigen Ort zu bündeln." lang="de">
+  <div style="position: fixed; top: -10rem; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; opacity: 0.15; background: radial-gradient(circle, hsl(270 88% 55%), transparent 70%); pointer-events: none; z-index: -1;"></div>
+  <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <section style="text-align: center; max-width: 36rem; margin: 0 auto 5rem;">
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">Wir bauen ein einfaches System<br />für den Familienalltag</span></h1>
+      <p style="font-size: 1rem; line-height: 1.75; color: var(--text-secondary);">Das Familienleben besteht aus vielen Teilen – Termine, Einkäufe, Events, Spieltreffen und ständige Kommunikation. Wir haben Eazy.Family entwickelt, um alles an einem privaten, ruhigen Ort zu bündeln, damit Familien weniger Zeit mit Organisieren und mehr Zeit miteinander verbringen.</p>
+    </section>
+    <section style="margin-bottom: 5rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--text-primary);">Unsere Werte</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        {[
+          { icon: "❤️", t: "Familie zuerst",         b: "Jede Entscheidung beginnt mit einer Frage: Macht das das Familienleben besser?" },
+          { icon: "🔒", t: "Datenschutz by Design",  b: "Wir verkaufen deine Daten niemals. Deine Familieninformationen sind verschlüsselt und nur für dich zugänglich." },
+          { icon: "👥", t: "Community-getrieben",    b: "Gebaut mit echten Eltern – dein Feedback prägt jede Funktion, die wir entwickeln." },
+          { icon: "⚡", t: "Eazy & Schnell",          b: "Die tägliche App für deine Familie – wir haben großen Wert auf Einfachheit und Nützlichkeit gelegt." },
+        ].map(v => (
+          <div class="card" style="display: flex; gap: 1rem;">
+            <div style="font-size: 1.5rem; flex-shrink: 0;">{v.icon}</div>
+            <div><h3 style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary); margin-bottom: 0.25rem;">{v.t}</h3><p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6;">{v.b}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section style="max-width: 40rem; margin: 0 auto 5rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Die Geschichte</h2>
+      <p style="font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">Das Familienleben ist schön. Die Tage sind lang, aber die Jahre vergehen schnell – und plötzlich ist die Zeit vorbei. Eazy.Family wurde entwickelt, damit jeder Moment zählt und der Alltag weniger frustriert: zu viele Apps und Messaging-Kanäle, verschiedene Kalender und getrennte Einkaufslisten, die Suche nach Aktivitäten für die Kinder. Was ist sicher, was nicht?</p>
+      <p style="font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary);">Unser Ziel war einfach: ein Ort, der privat und sicher ist, dabei hilft, unvergessliche Erinnerungen zu schaffen und den Alltag leichter macht.</p>
+    </section>
+    <section class="card" style="text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Eazy.Family beitreten</h2>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Keine Kreditkarte erforderlich.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary">Kostenlos starten</a>
+    </section>
+  </div>
+</Layout>

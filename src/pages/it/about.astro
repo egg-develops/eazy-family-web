@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Chi siamo" description="La vita familiare ha molte parti in movimento — abbiamo creato Eazy.Family per riunire tutto in uno spazio privato e tranquillo." lang="it">
+  <div style="position: fixed; top: -10rem; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; opacity: 0.15; background: radial-gradient(circle, hsl(270 88% 55%), transparent 70%); pointer-events: none; z-index: -1;"></div>
+  <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <section style="text-align: center; max-width: 36rem; margin: 0 auto 5rem;">
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">Stiamo costruendo un sistema semplice<br />per la vita familiare quotidiana</span></h1>
+      <p style="font-size: 1rem; line-height: 1.75; color: var(--text-secondary);">La vita familiare ha molte parti in movimento — orari, spesa, eventi, incontri e comunicazione costante. Abbiamo creato Eazy.Family per riunire tutto in uno spazio privato e tranquillo, così le famiglie possono passare meno tempo a organizzarsi e più tempo insieme.</p>
+    </section>
+    <section style="margin-bottom: 5rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--text-primary);">I nostri valori</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        {[
+          { icon: "❤️", t: "La famiglia prima di tutto", b: "Ogni decisione parte da una domanda: questo migliora la vita familiare?" },
+          { icon: "🔒", t: "Privacy by Design",          b: "Non vendiamo mai i tuoi dati. Le informazioni della tua famiglia sono crittografate e accessibili solo a te." },
+          { icon: "👥", t: "Guidati dalla community",   b: "Costruito con veri genitori — il tuo feedback modella ogni funzione che sviluppiamo." },
+          { icon: "⚡", t: "Eazy & Veloce",               b: "L'app quotidiana per la tua famiglia, abbiamo prestato grande attenzione a renderla semplice e utile." },
+        ].map(v => (
+          <div class="card" style="display: flex; gap: 1rem;">
+            <div style="font-size: 1.5rem; flex-shrink: 0;">{v.icon}</div>
+            <div><h3 style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary); margin-bottom: 0.25rem;">{v.t}</h3><p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6;">{v.b}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section style="max-width: 40rem; margin: 0 auto 5rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">La storia</h2>
+      <p style="font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">La vita familiare è bellissima. I giorni sono lunghi ma gli anni passano in fretta e prima di rendersene conto il tempo è volato. Eazy.Family è nata per far contare ogni momento e rimuovere le frustrazioni della vita quotidiana: troppe app e canali di messaggistica, calendari diversi e liste della spesa separate, la ricerca di attività per i tuoi figli. Cosa è sicuro, cosa no?</p>
+      <p style="font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary);">Il nostro obiettivo era semplice: un unico posto, privato e sicuro, che aiuta a creare ricordi duraturi per la tua famiglia e rende la vita quotidiana più facile.</p>
+    </section>
+    <section class="card" style="text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Unisciti a Eazy.Family</h2>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Nessuna carta di credito richiesta.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary">Inizia gratis</a>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Privacy Policy" description="How Eazy.Family collects, uses, and protects your family's data.">
+  <div style="max-width: 44rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">Privacy Policy</h1>
+    <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 3rem;">Last updated: May 2025</p>
+    <div class="prose">
+      <h2>Your data belongs to you</h2>
+      <p>Eazy.Family is built privacy-first. We do not sell your data. We do not serve advertisements. Your family's information is encrypted in transit and at rest, and is only accessible to members of your family group.</p>
+
+      <h2>What we collect</h2>
+      <p>We collect only what's necessary to provide the service:</p>
+      <ul>
+        <li><strong>Account information</strong> — email address and display name when you sign up</li>
+        <li><strong>Family data</strong> — calendar events, tasks, messages, and photos you create within the app</li>
+        <li><strong>Usage data</strong> — anonymous page views and feature usage to improve the product</li>
+        <li><strong>AI usage</strong> — prompts sent to the Eazy Assistant (used only to generate responses, not for model training)</li>
+      </ul>
+
+      <h2>What we never do</h2>
+      <ul>
+        <li>Sell your data to third parties</li>
+        <li>Use your data to train AI models</li>
+        <li>Show you advertisements</li>
+        <li>Share your family's information without your explicit consent</li>
+      </ul>
+
+      <h2>Data storage</h2>
+      <p>Your data is stored securely using Supabase infrastructure with row-level security — only authenticated members of your family can access your family's data.</p>
+
+      <h2>Third-party services</h2>
+      <p>We use the following services to operate Eazy.Family:</p>
+      <ul>
+        <li><strong>Supabase</strong> — database and authentication</li>
+        <li><strong>Anthropic</strong> — AI assistant (Claude)</li>
+        <li><strong>Resend</strong> — transactional email (invitations)</li>
+        <li><strong>Vercel</strong> — website hosting</li>
+      </ul>
+
+      <h2>Your rights</h2>
+      <p>You can request deletion of your account and all associated data at any time by emailing <a href="mailto:privacy@eazy.family">privacy@eazy.family</a>.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy? Email us at <a href="mailto:hello@eazy.family">hello@eazy.family</a>.</p>
+    </div>
+  </div>
+</Layout>

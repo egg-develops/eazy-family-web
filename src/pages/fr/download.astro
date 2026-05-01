@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Télécharger" description="Disponible sur le web maintenant. Les applications iOS et Android natives sont en cours." lang="fr">
+  <div style="position: fixed; top: -10rem; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; opacity: 0.15; background: radial-gradient(circle, hsl(270 88% 55%), transparent 70%); pointer-events: none; z-index: -1;"></div>
+  <div style="max-width: 40rem; margin: 0 auto; padding: 8rem 1.25rem 4rem; text-align: center;">
+    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem;"><span class="grad-text">Télécharger Eazy.Family</span></h1>
+    <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 3rem; line-height: 1.7;">Disponible sur le web maintenant. Les applications iOS et Android natives sont en cours.</p>
+    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; max-width: 20rem; margin: 0 auto 3rem;">
+      <a href="https://app.eazy.family/onboarding" class="btn-primary" style="width: 100%; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Ouvrir l'app web</a>
+      <div style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.875rem 1.5rem; border-radius: 0.875rem; border: 1px solid hsl(270 40% 22%); background: hsl(270 50% 10% / 0.6); opacity: 0.5; cursor: not-allowed; font-size: 0.9375rem; color: hsl(270 40% 78%);">App iOS — Bientôt disponible</div>
+      <div style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.875rem 1.5rem; border-radius: 0.875rem; border: 1px solid hsl(270 40% 22%); background: hsl(270 50% 10% / 0.6); opacity: 0.5; cursor: not-allowed; font-size: 0.9375rem; color: hsl(270 40% 78%);">App Android — Bientôt disponible</div>
+    </div>
+    <div class="card" style="text-align: center; border-radius: 1.25rem;">
+      <h3 style="font-weight: 600; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.5rem;">Être notifié au lancement des apps</h3>
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">Créez un compte gratuit et nous vous informerons quand iOS et Android seront prêts.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem; border-radius: 0.75rem;">Créer un compte gratuit</a>
+    </div>
+  </div>
+</Layout>

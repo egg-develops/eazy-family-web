@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="À propos" description="La vie de famille est faite de mille et un détails — nous avons créé Eazy.Family pour tout rassembler dans un espace privé et serein." lang="fr">
+  <div style="position: fixed; top: -10rem; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; opacity: 0.15; background: radial-gradient(circle, hsl(270 88% 55%), transparent 70%); pointer-events: none; z-index: -1;"></div>
+  <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <section style="text-align: center; max-width: 36rem; margin: 0 auto 5rem;">
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">Nous construisons un système simple<br />pour le quotidien familial</span></h1>
+      <p style="font-size: 1rem; line-height: 1.75; color: var(--text-secondary);">La vie de famille est faite de mille et un détails — agendas, courses, événements, rendez-vous et communication constante. Nous avons créé Eazy.Family pour tout rassembler dans un espace privé et serein afin que les familles passent moins de temps à s'organiser et plus de temps ensemble.</p>
+    </section>
+    <section style="margin-bottom: 5rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--text-primary);">Nos valeurs</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        {[
+          { icon: "❤️", t: "La famille avant tout",     b: "Chaque décision commence par une question : est-ce que cela améliore la vie de famille ?" },
+          { icon: "🔒", t: "Vie privée par conception", b: "Nous ne vendons jamais vos données. Les informations de votre famille sont chiffrées et accessibles uniquement à vous." },
+          { icon: "👥", t: "Piloté par la communauté", b: "Construit avec de vrais parents — vos retours façonnent chaque fonctionnalité que nous développons." },
+          { icon: "⚡", t: "Eazy & Rapide",              b: "L'application quotidienne pour votre famille, nous avons pris grand soin de la rendre simple et utile." },
+        ].map(v => (
+          <div class="card" style="display: flex; gap: 1rem;">
+            <div style="font-size: 1.5rem; flex-shrink: 0;">{v.icon}</div>
+            <div><h3 style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary); margin-bottom: 0.25rem;">{v.t}</h3><p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6;">{v.b}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section style="max-width: 40rem; margin: 0 auto 5rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Notre histoire</h2>
+      <p style="font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">La vie de famille est belle. Les journées sont longues mais les années passent vite et le temps file sans qu'on s'en rende compte. Eazy.Family a été créé pour que chaque moment compte et pour supprimer les frustrations du quotidien : trop d'applications, des calendriers différents, des listes de courses séparées, la recherche d'activités pour vos enfants. Qu'est-ce qui est sûr, qu'est-ce qui ne l'est pas ?</p>
+      <p style="font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary);">Notre objectif était simple : un seul endroit, privé et sécurisé, qui aide à créer des souvenirs durables pour votre famille et facilite votre quotidien.</p>
+    </section>
+    <section class="card" style="text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Rejoindre Eazy.Family</h2>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Aucune carte bancaire requise.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary">Commencer gratuitement</a>
+    </section>
+  </div>
+</Layout>

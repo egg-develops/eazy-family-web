@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Events" description="Eazy.Family organisiert altersgerechte Events – Musik, Kunst, Geschichten, Outdoor-Abenteuer und mehr – damit Familie und Freunde gemeinsam unvergessliche Momente erleben." lang="de">
+  <div style="position: fixed; top: -10rem; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; opacity: 0.15; background: radial-gradient(circle, hsl(270 88% 55%), transparent 70%); pointer-events: none; z-index: -1;"></div>
+  <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <section style="text-align: center; max-width: 36rem; margin: 0 auto 4rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; background: hsl(270 50% 14% / 0.7); border: 1px solid hsl(270 40% 28%); color: hsl(270 60% 82%); margin-bottom: 1.5rem;">Deine Quelle für familienfreundliche Events</div>
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">Echte Events<br />für neugierige Kinder</span></h1>
+      <p style="font-size: 1rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 2rem;">Eazy.Family organisiert altersgerechte Events – Musik, Kunst, Geschichten, Outdoor-Abenteuer und mehr – damit Familie und Freunde gemeinsam unvergessliche Momente erleben.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary">Eazy.Family für Updates beitreten</a>
+    </section>
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--text-primary);">Was erwartet dich</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        {[
+          { icon: "🎵", t: "Musik & Bewegung",     d: "Interaktive Sessions für Babys und Kleinkinder, Konzerte für junge Kinder." },
+          { icon: "🎨", t: "Kunst & Basteln",       d: "Kreative Workshops, die die Fantasie in jedem Alter beflügeln." },
+          { icon: "📖", t: "Geschichten erzählen",  d: "Live-Lesungen und theatralische Geschichten für die Kleinen." },
+          { icon: "🌿", t: "Outdoor-Abenteuer",    d: "Geführte Naturerlebnisse, Schnitzeljagden und Outdoor-Spiele." },
+        ].map(e => (
+          <div class="card" style="display: flex; gap: 1rem;">
+            <div style="font-size: 1.75rem; flex-shrink: 0;">{e.icon}</div>
+            <div><h3 style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary); margin-bottom: 0.25rem;">{e.t}</h3><p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6;">{e.d}</p></div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 4rem; text-align: center;">
+      {[
+        { v: "Lokal",        l: "Events in deiner Nähe" },
+        { v: "Altersgerecht", l: "Von 6 Monaten bis 10 Jahre" },
+        { v: "Kalender",     l: "Monatliche und besondere Events" },
+      ].map(s => (
+        <div class="card" style="border-radius: 1rem;">
+          <div style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">{s.v}</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">{s.l}</div>
+        </div>
+      ))}
+    </section>
+    <section class="card" style="text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Events bald verfügbar</h2>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Erstelle ein kostenloses Konto, um zu erfahren, wann Events in deine Region kommen.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary">Eazy.Family beitreten</a>
+    </section>
+  </div>
+</Layout>
