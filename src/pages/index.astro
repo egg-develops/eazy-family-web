@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Family Organizer App" description="The AI-powered family organizer. Calendar, tasks, chat, and more — private, multilingual, and beautifully simple. Made in Switzerland.">
+<Layout title="One Eazy place for your family" description="Shared calendars, to-do lists, messaging, and child-friendly events — all in one safe space built for your family.">
 
   <!-- Background blobs -->
   <div style="position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: -1;">
@@ -16,20 +16,20 @@ import Layout from '../layouts/Layout.astro';
     <div style="max-width: 48rem; margin: 0 auto;">
 
       <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; background: hsl(270 50% 14% / 0.7); border: 1px solid hsl(270 40% 28%); color: hsl(270 60% 82%); margin-bottom: 1.5rem;">
-        ✦ AI-powered family organizer
+        ✦ iOS & Android coming soon
       </div>
 
       <h1 style="font-size: clamp(2.25rem, 6vw, 3.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 1.25rem;">
-        <span class="grad-text">Keep Your Family<br />Organized and Connected</span>
+        <span class="grad-text">One Eazy place<br />for your family</span>
       </h1>
 
       <p style="font-size: 1.125rem; max-width: 32rem; margin: 0 auto 2rem; line-height: 1.7; color: var(--text-secondary);">
-        Shared calendars, AI assistant, family chat, tasks, and photo memories — all in one private, multilingual app. Built for real family life.
+        Shared calendars, to-do lists, messaging, and child-friendly events — all in one safe space built for your family.
       </p>
 
       <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 1.5rem;">
         <a href="https://app.eazy.family/onboarding" class="btn-primary">
-          Start for Free
+          Get Started — It's Free
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
         </a>
         <a href="https://app.eazy.family/auth" style="padding: 0.75rem 2rem; border-radius: 1rem; font-size: 1rem; color: hsl(270 40% 75%); text-decoration: none; display: inline-flex; align-items: center;">
@@ -38,7 +38,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; font-size: 0.75rem; color: hsl(270 30% 55%);">
-        {["Free to start", "No ads, ever", "Private by default"].map(t => (
+        {["Private", "Secure", "Cross-device sync"].map(t => (
           <span style="display: flex; align-items: center; gap: 0.4rem;">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(270 60% 72%)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
             {t}
@@ -56,12 +56,12 @@ import Layout from '../layouts/Layout.astro';
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
         {[
-          { icon: "🔒", title: "Privacy-first", desc: "No ads, no data selling. Your family's information stays yours." },
-          { icon: "✨", title: "AI Assistant", desc: "Eazy Assistant handles shopping lists, calendar events, and answers family questions in any language." },
-          { icon: "📅", title: "Shared Calendar", desc: "Sync with Google Calendar and Outlook. See everyone's schedule at a glance." },
-          { icon: "💬", title: "Family Chat", desc: "Real-time group chat with reactions, photos, and voice messages." },
-          { icon: "👥", title: "Family Groups", desc: "Connect extended family and communities. Share updates, milestones, and memories." },
-          { icon: "📍", title: "Location Sharing", desc: "Optional, consent-based family location sharing. Know everyone is safe." },
+          { icon: "🔒", title: "Secure & Private",        desc: "Your family's data stays yours. TLS encryption and strict per-family access controls." },
+          { icon: "✨", title: "Eazy Assistant",           desc: "Your personal AI helper with voice-activated features to manage your family life hands-free." },
+          { icon: "📅", title: "Shared Calendars & Lists", desc: "Sync schedules, to-dos and shopping lists instantly across all devices." },
+          { icon: "💬", title: "Family Messaging",         desc: "A private space for your family to stay connected every day." },
+          { icon: "👥", title: "Parent Community",         desc: "Connect with nearby parents, share tips and arrange playdates." },
+          { icon: "📍", title: "Local Event Discovery",    desc: "Find family-friendly activities, markets and events happening near you." },
         ].map(f => (
           <div class="card" style="display: flex; gap: 1rem; align-items: flex-start;">
             <div style="width: 2.5rem; height: 2.5rem; flex-shrink: 0; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; background: linear-gradient(135deg, hsl(270 88% 58%), hsl(290 80% 62%));">
@@ -81,13 +81,13 @@ import Layout from '../layouts/Layout.astro';
   <section style="padding: 5rem 1.25rem;">
     <div style="max-width: 56rem; margin: 0 auto;">
       <h2 style="text-align: center; font-size: 1.75rem; font-weight: 700; margin-bottom: 3rem; color: var(--text-primary);">
-        Up and running in minutes
+        Eazy to Get Started
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
         {[
-          { n: "01", t: "Create your family", b: "Sign up and give your family a name. Invite members by email or link." },
-          { n: "02", t: "Connect your calendars", b: "Sync Google or Outlook calendars — all schedules in one view." },
-          { n: "03", t: "Let Eazy do the rest", b: "Ask the AI assistant, share photos, chat, and stay connected effortlessly." },
+          { n: "01", t: "Create your family",  b: "Sign up and set up your family profile in under a minute." },
+          { n: "02", t: "Invite everyone",      b: "Share a link or code — family members join instantly." },
+          { n: "03", t: "Stay organised",       b: "Manage calendars, lists, events and messages together." },
         ].map(s => (
           <div>
             <div style="font-size: 3rem; font-weight: 800; opacity: 0.18; color: hsl(270 88% 70%); margin-bottom: 0.5rem;">{s.n}</div>
@@ -103,15 +103,15 @@ import Layout from '../layouts/Layout.astro';
   <section style="padding: 5rem 1.25rem;">
     <div class="card" style="max-width: 40rem; margin: 0 auto; text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
       <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">
-        Ready to get organized?
+        Available on all your devices
       </h2>
       <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
-        Join families in Switzerland and beyond using Eazy.Family to stay organized and connected. Free to start.
+        Use the web app now — native iOS and Android apps are coming soon with the same seamless sync.
       </p>
       <a href="https://app.eazy.family/onboarding" class="btn-primary">
-        Start for Free
+        Get Started — It's Free
       </a>
-      <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted);">iOS & Android apps coming soon · Web app available now</p>
+      <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted);">Free to use · No ads</p>
     </div>
   </section>
 

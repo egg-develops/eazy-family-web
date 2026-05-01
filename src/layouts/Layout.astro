@@ -17,15 +17,33 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
+// Detect current locale from URL
+const path = Astro.url.pathname;
+const currentLang = path.startsWith('/de') ? 'de' : path.startsWith('/fr') ? 'fr' : path.startsWith('/it') ? 'it' : 'en';
+
+// Strip locale prefix to get the base path for lang switching
+const basePath = path.replace(/^\/(de|fr|it)/, '') || '/';
+
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/download", label: "Get the App" },
+  { href: currentLang === 'en' ? '/'         : `/${currentLang}/`,         label: currentLang === 'de' ? 'Start' : currentLang === 'fr' ? 'Accueil' : currentLang === 'it' ? 'Home' : 'Home' },
+  { href: currentLang === 'en' ? '/about'    : `/${currentLang}/about`,    label: currentLang === 'de' ? 'Über uns' : currentLang === 'fr' ? 'À propos' : currentLang === 'it' ? 'Chi siamo' : 'About' },
+  { href: currentLang === 'en' ? '/events'   : `/${currentLang}/events`,   label: currentLang === 'de' ? 'Events' : currentLang === 'fr' ? 'Événements' : currentLang === 'it' ? 'Eventi' : 'Events' },
+  { href: currentLang === 'en' ? '/download' : `/${currentLang}/download`, label: currentLang === 'de' ? 'App laden' : currentLang === 'fr' ? 'Télécharger' : currentLang === 'it' ? "Scarica l'app" : 'Get the App' },
 ];
+
+const langs = [
+  { code: 'en', flag: '🇬🇧', label: 'EN', href: basePath },
+  { code: 'de', flag: '🇩🇪', label: 'DE', href: `/de${basePath === '/' ? '' : basePath}` },
+  { code: 'fr', flag: '🇫🇷', label: 'FR', href: `/fr${basePath === '/' ? '' : basePath}` },
+  { code: 'it', flag: '🇮🇹', label: 'IT', href: `/it${basePath === '/' ? '' : basePath}` },
+];
+
+const ctaHref = currentLang === 'en' ? 'https://app.eazy.family/onboarding' : 'https://app.eazy.family/onboarding';
+const ctaLabel = currentLang === 'de' ? 'Kostenlos starten' : currentLang === 'fr' ? 'Commencer gratuitement' : currentLang === 'it' ? 'Inizia gratis' : 'Get Started Free';
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={currentLang === 'de' ? 'de-CH' : currentLang === 'fr' ? 'fr-CH' : currentLang === 'it' ? 'it-CH' : 'en'}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,10 +65,10 @@ const navLinks = [
   <link rel="apple-touch-icon" href="/logo.png" />
 
   <!-- hreflang -->
-  <link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname, Astro.site)} />
-  <link rel="alternate" hreflang="de" href={new URL(`/de${Astro.url.pathname}`, Astro.site)} />
-  <link rel="alternate" hreflang="fr" href={new URL(`/fr${Astro.url.pathname}`, Astro.site)} />
-  <link rel="alternate" hreflang="it" href={new URL(`/it${Astro.url.pathname}`, Astro.site)} />
+  <link rel="alternate" hreflang="en" href={new URL(basePath, Astro.site)} />
+  <link rel="alternate" hreflang="de-CH" href={new URL(`/de${basePath === '/' ? '' : basePath}`, Astro.site)} />
+  <link rel="alternate" hreflang="fr-CH" href={new URL(`/fr${basePath === '/' ? '' : basePath}`, Astro.site)} />
+  <link rel="alternate" hreflang="it-CH" href={new URL(`/it${basePath === '/' ? '' : basePath}`, Astro.site)} />
 
   <!-- Schema.org -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -68,34 +86,50 @@ const navLinks = [
 <body>
   <!-- Nav -->
   <header class="fixed top-0 left-0 right-0 z-50" style="background: rgb(14 11 26 / 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid hsl(270 40% 16%);">
-    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5">
+    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+      <a href={currentLang === 'en' ? '/' : `/${currentLang}/`} class="flex items-center gap-2.5 flex-shrink-0">
         <img src="/logo.png" alt="Eazy.Family" width="28" height="28" style="border-radius: 6px;" />
         <span style="font-weight: 600; font-size: 0.95rem; color: hsl(270 40% 85%);">Eazy.Family</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8">
+      <nav class="hidden md:flex items-center gap-6">
         {navLinks.map(l => (
           <a href={l.href} style="font-size: 0.875rem; color: hsl(270 30% 68%);" class="hover:opacity-80 transition-opacity">{l.label}</a>
         ))}
         <!-- Resources dropdown -->
         <div class="relative group">
           <button style="font-size: 0.875rem; color: hsl(270 30% 68%); display: flex; align-items: center; gap: 0.25rem; background: none; border: none; cursor: pointer;" class="hover:opacity-80 transition-opacity">
-            Resources
+            {currentLang === 'de' ? 'Ressourcen' : currentLang === 'fr' ? 'Ressources' : currentLang === 'it' ? 'Risorse' : 'Resources'}
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 hidden group-hover:block">
             <div class="card min-w-[180px] p-2 flex flex-col gap-1" style="border-radius: 0.75rem;">
               <a href="/resources/blog" class="px-3 py-2 rounded-lg text-sm hover:opacity-80" style="color: hsl(270 30% 75%);">Blog</a>
-              <a href="/resources/parenting" class="px-3 py-2 rounded-lg text-sm hover:opacity-80" style="color: hsl(270 30% 75%);">Parenting Resources</a>
+              <a href="/resources/parenting" class="px-3 py-2 rounded-lg text-sm hover:opacity-80" style="color: hsl(270 30% 75%);">
+                {currentLang === 'de' ? 'Eltern-Ressourcen' : currentLang === 'fr' ? 'Ressources parentales' : currentLang === 'it' ? 'Risorse genitori' : 'Parenting Resources'}
+              </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <a href="https://app.eazy.family/onboarding" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius: 0.75rem;">
-        Get Started Free
-      </a>
+      <div class="flex items-center gap-2">
+        <!-- Language switcher -->
+        <div class="flex items-center gap-0.5">
+          {langs.map(l => (
+            <a
+              href={l.href}
+              style={`font-size: 0.7rem; padding: 0.2rem 0.4rem; border-radius: 0.375rem; text-decoration: none; font-weight: 500; transition: opacity 0.15s; ${currentLang === l.code ? 'color: hsl(270 60% 82%); background: hsl(270 50% 18%);' : 'color: hsl(270 30% 55%);'}`}
+              aria-label={`Switch to ${l.label}`}
+            >
+              {l.flag} {l.label}
+            </a>
+          ))}
+        </div>
+        <a href={ctaHref} class="btn-primary hidden md:inline-flex" style="padding: 0.5rem 1.25rem; font-size: 0.875rem; border-radius: 0.75rem;">
+          {ctaLabel}
+        </a>
+      </div>
     </div>
   </header>
 
@@ -106,13 +140,14 @@ const navLinks = [
   <!-- Footer -->
   <footer style="border-top: 1px solid hsl(270 40% 16%); padding: 2.5rem 1.25rem; margin-top: 4rem;">
     <div class="max-w-6xl mx-auto" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
-      <a href="/" class="flex items-center gap-2.5">
+      <a href={currentLang === 'en' ? '/' : `/${currentLang}/`} class="flex items-center gap-2.5">
         <img src="/logo.png" alt="Eazy.Family" width="28" height="28" style="border-radius: 6px;" />
         <span style="font-weight: 600; font-size: 0.875rem; color: hsl(270 40% 80%);">Eazy.Family</span>
       </a>
       <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2rem; font-size: 0.75rem; color: hsl(270 30% 58%);">
-        <a href="/about" class="hover:opacity-80">About</a>
-        <a href="/download" class="hover:opacity-80">Download</a>
+        <a href={currentLang === 'en' ? '/about' : `/${currentLang}/about`} class="hover:opacity-80">{currentLang === 'de' ? 'Über uns' : currentLang === 'fr' ? 'À propos' : currentLang === 'it' ? 'Chi siamo' : 'About'}</a>
+        <a href={currentLang === 'en' ? '/events' : `/${currentLang}/events`} class="hover:opacity-80">{currentLang === 'de' ? 'Events' : currentLang === 'fr' ? 'Événements' : currentLang === 'it' ? 'Eventi' : 'Events'}</a>
+        <a href={currentLang === 'en' ? '/download' : `/${currentLang}/download`} class="hover:opacity-80">{currentLang === 'de' ? 'App laden' : currentLang === 'fr' ? 'Télécharger' : currentLang === 'it' ? "Scarica" : 'Download'}</a>
         <a href="/resources/blog" class="hover:opacity-80">Blog</a>
         <a href="/privacy" class="hover:opacity-80">Privacy Policy</a>
         <a href="/terms" class="hover:opacity-80">Terms</a>
