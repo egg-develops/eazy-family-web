@@ -1,18 +1,34 @@
 ---
 import '../styles/global.css';
 
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface ArticleMeta {
+  headline: string;
+  datePublished: string;
+  dateModified?: string;
+  author?: string;
+}
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
   lang?: string;
+  faqItems?: FaqItem[];
+  article?: ArticleMeta;
 }
 
 const {
   title,
   description = "The AI-powered family organizer. Calendar, tasks, chat and more — private, multilingual, and beautifully simple.",
   ogImage = "/og-image.png",
-  lang = "en"
+  lang = "en",
+  faqItems,
+  article,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -70,16 +86,49 @@ const ctaLabel = currentLang === 'de' ? 'Kostenlos starten' : currentLang === 'f
   <link rel="alternate" hreflang="fr-CH" href={new URL(`/fr${basePath === '/' ? '' : basePath}`, Astro.site)} />
   <link rel="alternate" hreflang="it-CH" href={new URL(`/it${basePath === '/' ? '' : basePath}`, Astro.site)} />
 
-  <!-- Schema.org -->
+  <!-- Schema.org: Organization -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Eazy.Family",
-    "operatingSystem": "iOS, Android, Web",
-    "applicationCategory": "LifestyleApplication",
-    "description": description,
-    "url": "https://eazy.family",
-    "sameAs": ["https://x.com/eazy_family"]
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://eazy.family/#organization",
+        "name": "Eazy.Family",
+        "url": "https://eazy.family",
+        "logo": "https://eazy.family/logo.png",
+        "sameAs": ["https://x.com/eazy_family"],
+        "contactPoint": { "@type": "ContactPoint", "email": "hello@eazy.family", "contactType": "customer support" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://eazy.family/#app",
+        "name": "Eazy.Family",
+        "operatingSystem": "iOS, Android, Web",
+        "applicationCategory": "LifestyleApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "description": "Family organizer app with shared calendar, to-do lists, messaging, and AI assistant. Private, secure, no ads.",
+        "url": "https://eazy.family",
+        "publisher": { "@id": "https://eazy.family/#organization" }
+      },
+      ...(faqItems && faqItems.length > 0 ? [{
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(f => ({
+          "@type": "Question",
+          "name": f.question,
+          "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+        }))
+      }] : []),
+      ...(article ? [{
+        "@type": "Article",
+        "headline": article.headline,
+        "datePublished": article.datePublished,
+        "dateModified": article.dateModified ?? article.datePublished,
+        "author": { "@type": "Organization", "name": article.author ?? "Eazy.Family Team", "@id": "https://eazy.family/#organization" },
+        "publisher": { "@id": "https://eazy.family/#organization" },
+        "image": new URL(ogImage, Astro.site),
+        "url": canonicalURL
+      }] : [])
+    ]
   })} />
 </head>
 

@@ -1,7 +1,7 @@
 ---
 title: "What an AI Family Assistant Can Actually Do (And What It Can't)"
 description: "AI assistants are everywhere, but most aren't built for family life. Here's what a real AI family assistant should handle — and the honest limitations."
-pubDate: 2025-05-01
+pubDate: 2026-05-01
 tags: ["AI assistant", "family tech", "productivity", "smart home"]
 lang: en
 ---

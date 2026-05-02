@@ -1,7 +1,7 @@
 ---
-title: "Familienplaner App Schweiz 2025: Der ultimative Vergleich"
+title: "Familienplaner App Schweiz 2026: Der ultimative Vergleich"
 description: "Welche Familienplaner-App passt am besten zu Schweizer Familien? Wir vergleichen die beliebtesten Apps und erklären, warum Mehrsprachigkeit so wichtig ist."
-pubDate: 2025-05-01
+pubDate: 2026-05-01
 tags: ["Familienplaner", "Schweiz", "App", "Zürich", "mehrsprachig"]
 lang: de
 ---

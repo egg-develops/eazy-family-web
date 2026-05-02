@@ -1,7 +1,7 @@
 ---
-title: "The Best Family Organizer App for Switzerland in 2025"
+title: "The Best Family Organizer App for Switzerland in 2026"
 description: "Looking for a family organizer app that works in German, French, and Italian? Here's why multilingual families in Switzerland are switching to Eazy.Family."
-pubDate: 2025-05-01
+pubDate: 2026-05-01
 tags: ["family organizer", "Switzerland", "multilingual", "Familienplaner"]
 lang: en
 ---
