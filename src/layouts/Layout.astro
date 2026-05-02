@@ -154,7 +154,7 @@ const ctaLabel = currentLang === 'de' ? 'Kostenlos starten' : currentLang === 'f
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 hidden group-hover:block">
             <div class="card min-w-[180px] p-2 flex flex-col gap-1" style="border-radius: 0.75rem;">
-              <a href="/resources/blog" class="px-3 py-2 rounded-lg text-sm hover:opacity-80" style="color: hsl(270 30% 75%);">Blog</a>
+              <a href={currentLang === 'en' ? '/resources/blog' : `/${currentLang}/resources/blog`} class="px-3 py-2 rounded-lg text-sm hover:opacity-80" style="color: hsl(270 30% 75%);">Blog</a>
               <a href="/resources/parenting" class="px-3 py-2 rounded-lg text-sm hover:opacity-80" style="color: hsl(270 30% 75%);">
                 {currentLang === 'de' ? 'Eltern-Ressourcen' : currentLang === 'fr' ? 'Ressources parentales' : currentLang === 'it' ? 'Risorse genitori' : 'Parenting Resources'}
               </a>
