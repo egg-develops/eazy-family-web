@@ -1,69 +1,152 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const sections = {
+  en: [
+    {
+      category: "Family Organization",
+      items: [
+        { title: "How to build a weekly family routine that actually sticks", href: "/resources/blog/best-family-app-2026" },
+        { title: "Shared calendars: why one source of truth matters", href: "/resources/blog/family-calendar-app-switzerland" },
+        { title: "The best family organizer app for Switzerland in 2026", href: "/resources/blog/best-family-organizer-app-switzerland" },
+      ]
+    },
+    {
+      category: "Digital Wellbeing",
+      items: [
+        { title: "Screen time rules that work for the whole family", href: "/resources/blog" },
+        { title: "Privacy-first tech for families: what to look for", href: "/resources/blog/best-family-app-2026" },
+      ]
+    },
+    {
+      category: "Multilingual Families",
+      items: [
+        { title: "Raising bilingual children in Switzerland: practical tips", href: "/resources/blog" },
+        { title: "Family apps that work in German, French, and Italian", href: "/resources/blog/family-calendar-app-switzerland" },
+      ]
+    },
+  ],
+  de: [
+    {
+      category: "Familienorganisation",
+      items: [
+        { title: "Die beste Familien-App kostenlos: Was Sie wissen müssen", href: "/resources/blog/beste-familien-app-kostenlos" },
+        { title: "Familienkalender App für Deutschland und die Schweiz", href: "/resources/blog/familienkalender-app-deutschland" },
+        { title: "Familienplaner App Schweiz 2026: Der ultimative Vergleich", href: "/resources/blog/familienplaner-app-schweiz-2025" },
+      ]
+    },
+    {
+      category: "Digitales Wohlbefinden",
+      items: [
+        { title: "Datenschutz in Familien-Apps: Was wirklich wichtig ist", href: "/resources/blog/beste-familien-app-kostenlos" },
+      ]
+    },
+  ],
+  fr: [
+    {
+      category: "Organisation familiale",
+      items: [
+        { title: "Meilleure application famille 2026: comparatif complet", href: "/resources/blog/meilleure-app-famille-2026" },
+        { title: "Application calendrier famille Suisse: guide de choix", href: "/resources/blog/application-calendrier-famille-suisse" },
+      ]
+    },
+    {
+      category: "Bien-être numérique",
+      items: [
+        { title: "Protection des données: ce que les parents doivent savoir", href: "/resources/blog/meilleure-app-famille-2026" },
+      ]
+    },
+  ],
+  it: [
+    {
+      category: "Organizzazione familiare",
+      items: [
+        { title: "Migliore app famiglia 2026: confronto completo", href: "/resources/blog/migliore-app-famiglia-2026" },
+        { title: "App calendario famiglia Svizzera: guida alla scelta", href: "/resources/blog/app-calendario-famiglia-svizzera" },
+      ]
+    },
+    {
+      category: "Benessere digitale",
+      items: [
+        { title: "Privacy nelle app di famiglia: cosa sapere", href: "/resources/blog/migliore-app-famiglia-2026" },
+      ]
+    },
+  ],
+};
+
+const langLabels: Record<string, string> = { en: '🇬🇧 EN', de: '🇩🇪 DE', fr: '🇫🇷 FR', it: '🇮🇹 IT' };
 ---
 
-<Layout title="Parenting Resources" description="Curated parenting guides, tools, and reading for modern families navigating busy lives in Switzerland and beyond.">
+<Layout title="Parenting Resources" description="Curated parenting guides, tools, and reading for modern families in Switzerland and beyond.">
 
   <div style="max-width: 48rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
 
-    <div style="margin-bottom: 3rem;">
+    <div style="margin-bottom: 2rem;">
       <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">
         <a href="/resources" style="color: var(--text-muted); text-decoration: none;">Resources</a> /
       </div>
       <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-primary);">Parenting Resources</h1>
-      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-top: 0.5rem;">
-        Curated tools and reading for modern parents.
-      </p>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-top: 0.5rem;">Curated tools and reading for modern parents.</p>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-      {[
-        {
-          category: "Family Organization",
-          items: [
-            { title: "How to build a weekly family routine that actually sticks", href: "/resources/blog/best-family-organizer-app-switzerland" },
-            { title: "Shared calendars: why one source of truth matters", href: "/resources/blog/best-family-organizer-app-switzerland" },
-          ]
-        },
-        {
-          category: "Digital Wellbeing",
-          items: [
-            { title: "Screen time rules that work for the whole family", href: "/resources/blog" },
-            { title: "Privacy-first tech for families: what to look for", href: "/resources/blog" },
-          ]
-        },
-        {
-          category: "Multilingual Families",
-          items: [
-            { title: "Raising bilingual children in Switzerland: practical tips", href: "/resources/blog" },
-            { title: "Family apps that work in German, French, and Italian", href: "/resources/blog/familienplaner-app-schweiz-2025" },
-          ]
-        },
-      ].map(section => (
-        <div class="card" style="border-radius: 1.25rem; padding: 1.5rem;">
-          <h2 style="font-size: 0.875rem; font-weight: 700; color: hsl(270 60% 72%); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">{section.category}</h2>
-          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-            {section.items.map(item => (
-              <li>
-                <a href={item.href} style="font-size: 0.9375rem; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;" class="hover:opacity-80">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(270 60% 65%)" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <!-- Language filter -->
+    <div id="lang-filter" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem;">
+      {(['en', 'de', 'fr', 'it'] as const).map((l, i) => (
+        <button
+          data-lang={l}
+          style={`font-size: 0.75rem; padding: 0.35rem 0.875rem; border-radius: 9999px; border: 1px solid hsl(270 40% 22%); cursor: pointer; font-weight: 500; transition: all 0.15s; background: ${i === 0 ? 'hsl(270 50% 18%)' : 'transparent'}; color: ${i === 0 ? 'hsl(270 60% 82%)' : 'hsl(270 30% 60%)'};`}
+        >
+          {langLabels[l]}
+        </button>
       ))}
     </div>
 
+    {(['en', 'de', 'fr', 'it'] as const).map(lang => (
+      <div data-section-lang={lang} style={lang !== 'en' ? 'display:none' : ''}>
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          {sections[lang].map(section => (
+            <div class="card" style="border-radius: 1.25rem; padding: 1.5rem;">
+              <h2 style="font-size: 0.875rem; font-weight: 700; color: hsl(270 60% 72%); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">{section.category}</h2>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                {section.items.map(item => (
+                  <li>
+                    <a href={item.href} style="font-size: 0.9375rem; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem;" class="hover:opacity-80">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(270 60% 65%)" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
     <div class="card" style="text-align: center; margin-top: 2rem; border-radius: 1.25rem; padding: 2rem;">
-      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
-        More resources coming weekly. Get notified when we publish.
-      </p>
-      <a href="https://app.eazy.family/onboarding" class="btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem; border-radius: 0.75rem;">
-        Join Eazy.Family Free
-      </a>
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">More resources added weekly.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem; border-radius: 0.75rem;">Join Eazy.Family Free</a>
     </div>
 
   </div>
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#lang-filter button');
+  const sections = document.querySelectorAll<HTMLElement>('[data-section-lang]');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang!;
+      buttons.forEach(b => {
+        b.style.background = 'transparent';
+        b.style.color = 'hsl(270 30% 60%)';
+      });
+      btn.style.background = 'hsl(270 50% 18%)';
+      btn.style.color = 'hsl(270 60% 82%)';
+      sections.forEach(s => {
+        s.style.display = s.dataset.sectionLang === lang ? '' : 'none';
+      });
+    });
+  });
+</script>

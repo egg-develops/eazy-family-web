@@ -1,0 +1,23 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+<Layout title="Ressources" description="Conseils d'organisation familiale, guides parentaux et ressources de l'équipe Eazy.Family." lang="fr">
+  <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1rem;"><span class="grad-text">Ressources</span></h1>
+      <p style="font-size: 1rem; color: var(--text-secondary); max-width: 30rem; margin: 0 auto;">Guides, conseils et outils pour aider votre famille à s'épanouir.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+      <a href="/fr/resources/blog" style="text-decoration: none;" class="card" style="display: block; border-radius: 1.25rem; padding: 2rem; transition: opacity 0.15s;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">✍️</div>
+        <h2 style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Blog</h2>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">Conseils d'organisation, guides d'applications et actualités de l'équipe Eazy.Family.</p>
+      </a>
+      <a href="/resources/parenting" style="text-decoration: none;" class="card" style="display: block; border-radius: 1.25rem; padding: 2rem; transition: opacity 0.15s;">
+        <div style="font-size: 2rem; margin-bottom: 1rem;">👨‍👩‍👧‍👦</div>
+        <h2 style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Ressources parentales</h2>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">Guides et outils sélectionnés pour les parents modernes qui naviguent dans la vie de famille.</p>
+      </a>
+    </div>
+  </div>
+</Layout>
