@@ -11,8 +11,7 @@ const picks = [
         description: "12 revolutionary strategies to nurture your child's developing mind. A must-read for parents of young children.",
         ages: "Parents",
         rating: 5,
-        href: "https://www.amazon.com/dp/0553386697?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=The+Whole-Brain+Child+Siegel&tag=eazyfamily-20",
       },
       {
         title: "How to Talk So Kids Will Listen",
@@ -20,8 +19,7 @@ const picks = [
         description: "Practical communication techniques that transform the parent-child relationship. Timeless and effective.",
         ages: "Parents",
         rating: 5,
-        href: "https://www.amazon.com/dp/1451663889?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=How+to+Talk+So+Kids+Will+Listen+Faber&tag=eazyfamily-20",
       },
       {
         title: "The Coddling of the American Mind",
@@ -29,8 +27,7 @@ const picks = [
         description: "Essential reading for parents navigating screen time, resilience, and raising independent thinkers.",
         ages: "Parents",
         rating: 4,
-        href: "https://www.amazon.com/dp/0735224919?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=The+Coddling+of+the+American+Mind+Haidt&tag=eazyfamily-20",
       },
     ]
   },
@@ -43,8 +40,7 @@ const picks = [
         description: "Award-winning hands-on learning system that combines physical play with digital interaction. Works with iPad.",
         ages: "6–10",
         rating: 5,
-        href: "https://www.amazon.com/dp/B077XFSYB2?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=Osmo+Genius+Starter+Kit&tag=eazyfamily-20",
       },
       {
         title: "Toniebox Starter Set",
@@ -52,8 +48,7 @@ const picks = [
         description: "Screen-free audio player for children. Kids place character figurines on top to play stories and music. Hugely popular in Switzerland and Germany.",
         ages: "3–8",
         rating: 5,
-        href: "https://www.amazon.com/dp/B07QJHML2K?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=Toniebox+Starter+Set&tag=eazyfamily-20",
       },
       {
         title: "LEGO Classic Creative Brick Box",
@@ -61,8 +56,7 @@ const picks = [
         description: "The original open-ended creative toy. Builds spatial reasoning, patience, and imagination.",
         ages: "4+",
         rating: 5,
-        href: "https://www.amazon.com/dp/B01CXNPBSK?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=LEGO+Classic+Creative+Brick+Box&tag=eazyfamily-20",
       },
     ]
   },
@@ -75,8 +69,7 @@ const picks = [
         description: "Kid-friendly smart speaker with parental controls, educational content, and a durable design.",
         ages: "5–12",
         rating: 4,
-        href: "https://www.amazon.com/dp/B09B94S3C9?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=Amazon+Echo+Dot+Kids&tag=eazyfamily-20",
       },
       {
         title: "Kindle Kids",
@@ -84,8 +77,7 @@ const picks = [
         description: "Purpose-built e-reader for children with a year of Amazon Kids+ included. Promotes reading over screens.",
         ages: "6–12",
         rating: 5,
-        href: "https://www.amazon.com/dp/B08WW15TGH?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=Kindle+Kids&tag=eazyfamily-20",
       },
     ]
   },
@@ -93,22 +85,20 @@ const picks = [
     category: "Outdoor & Adventure",
     items: [
       {
-        title: "Biopod Nano Terrarium Starter Kit",
-        author: "Biopod",
-        description: "A self-sustaining mini ecosystem that teaches children about nature, ecosystems, and responsibility.",
-        ages: "7+",
-        rating: 4,
-        href: "https://www.amazon.com/dp/B07BK2PTFS?tag=eazyfamily-20",
-        img: null,
-      },
-      {
-        title: "National Geographic Kids Backpack Kit",
+        title: "National Geographic Kids Explorer Kit",
         author: "National Geographic",
         description: "Magnifying glass, compass, binoculars and more. Everything for a proper outdoor adventure.",
         ages: "6–12",
         rating: 4,
-        href: "https://www.amazon.com/dp/B07D4GFKBK?tag=eazyfamily-20",
-        img: null,
+        href: "https://www.amazon.com/s?k=National+Geographic+Kids+Explorer+Kit&tag=eazyfamily-20",
+      },
+      {
+        title: "Melissa & Doug Sunny Patch Backpack",
+        author: "Melissa & Doug",
+        description: "Durable outdoor backpack designed for little adventurers. Perfect for hikes and nature walks.",
+        ages: "3–7",
+        rating: 4,
+        href: "https://www.amazon.com/s?k=Melissa+Doug+kids+outdoor+backpack&tag=eazyfamily-20",
       },
     ]
   },
@@ -118,7 +108,7 @@ const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n);
 ---
 
 <Layout
-  title="Family Picks"
+  title="EZ Shop"
   description="Eazy.Family-approved books, toys, and gear — hand-picked for modern families. Only products we genuinely recommend."
   faqItems={[
     { question: "How does Eazy.Family choose these products?", answer: "Every product on this page is hand-picked by the Eazy.Family team based on high ratings, genuine parent reviews, and alignment with our values: learning, outdoor play, and screen-conscious parenting. We only list products we would use ourselves." },
@@ -128,15 +118,13 @@ const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n);
 
   <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
 
-    <!-- Header -->
     <div style="text-align: center; max-width: 36rem; margin: 0 auto 4rem;">
       <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; background: hsl(270 50% 14% / 0.7); border: 1px solid hsl(270 40% 28%); color: hsl(270 60% 82%); margin-bottom: 1.5rem;">Eazy.Family Approved</div>
-      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">Family Picks</span></h1>
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">EZ Shop</span></h1>
       <p style="font-size: 1rem; line-height: 1.75; color: var(--text-secondary);">A small, curated selection of books, toys, and gear we genuinely recommend for modern families. No clutter — just the good stuff.</p>
       <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Some links are affiliate links. We earn a small commission at no cost to you.</p>
     </div>
 
-    <!-- Categories -->
     {picks.map(category => (
       <section style="margin-bottom: 4rem;">
         <h2 style="font-size: 1rem; font-weight: 700; color: hsl(270 60% 72%); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem;">{category.category}</h2>
@@ -160,7 +148,6 @@ const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n);
       </section>
     ))}
 
-    <!-- CTA -->
     <div class="card" style="text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Keep your family organised</h2>
       <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Eazy.Family brings your shared calendar, lists, and messaging together in one private space.</p>
