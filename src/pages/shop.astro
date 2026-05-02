@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const picks = [
+  {
+    category: "Books",
+    items: [
+      {
+        title: "The Whole-Brain Child",
+        author: "Daniel J. Siegel & Tina Payne Bryson",
+        description: "12 revolutionary strategies to nurture your child's developing mind. A must-read for parents of young children.",
+        ages: "Parents",
+        rating: 5,
+        href: "https://www.amazon.com/dp/0553386697?tag=eazyfamily-20",
+        img: null,
+      },
+      {
+        title: "How to Talk So Kids Will Listen",
+        author: "Adele Faber & Elaine Mazlish",
+        description: "Practical communication techniques that transform the parent-child relationship. Timeless and effective.",
+        ages: "Parents",
+        rating: 5,
+        href: "https://www.amazon.com/dp/1451663889?tag=eazyfamily-20",
+        img: null,
+      },
+      {
+        title: "The Coddling of the American Mind",
+        author: "Greg Lukianoff & Jonathan Haidt",
+        description: "Essential reading for parents navigating screen time, resilience, and raising independent thinkers.",
+        ages: "Parents",
+        rating: 4,
+        href: "https://www.amazon.com/dp/0735224919?tag=eazyfamily-20",
+        img: null,
+      },
+    ]
+  },
+  {
+    category: "Educational Toys",
+    items: [
+      {
+        title: "Osmo Genius Starter Kit",
+        author: "Osmo",
+        description: "Award-winning hands-on learning system that combines physical play with digital interaction. Works with iPad.",
+        ages: "6–10",
+        rating: 5,
+        href: "https://www.amazon.com/dp/B077XFSYB2?tag=eazyfamily-20",
+        img: null,
+      },
+      {
+        title: "Toniebox Starter Set",
+        author: "Tonies",
+        description: "Screen-free audio player for children. Kids place character figurines on top to play stories and music. Hugely popular in Switzerland and Germany.",
+        ages: "3–8",
+        rating: 5,
+        href: "https://www.amazon.com/dp/B07QJHML2K?tag=eazyfamily-20",
+        img: null,
+      },
+      {
+        title: "LEGO Classic Creative Brick Box",
+        author: "LEGO",
+        description: "The original open-ended creative toy. Builds spatial reasoning, patience, and imagination.",
+        ages: "4+",
+        rating: 5,
+        href: "https://www.amazon.com/dp/B01CXNPBSK?tag=eazyfamily-20",
+        img: null,
+      },
+    ]
+  },
+  {
+    category: "Family Tech",
+    items: [
+      {
+        title: "Amazon Echo Dot Kids",
+        author: "Amazon",
+        description: "Kid-friendly smart speaker with parental controls, educational content, and a durable design.",
+        ages: "5–12",
+        rating: 4,
+        href: "https://www.amazon.com/dp/B09B94S3C9?tag=eazyfamily-20",
+        img: null,
+      },
+      {
+        title: "Kindle Kids",
+        author: "Amazon",
+        description: "Purpose-built e-reader for children with a year of Amazon Kids+ included. Promotes reading over screens.",
+        ages: "6–12",
+        rating: 5,
+        href: "https://www.amazon.com/dp/B08WW15TGH?tag=eazyfamily-20",
+        img: null,
+      },
+    ]
+  },
+  {
+    category: "Outdoor & Adventure",
+    items: [
+      {
+        title: "Biopod Nano Terrarium Starter Kit",
+        author: "Biopod",
+        description: "A self-sustaining mini ecosystem that teaches children about nature, ecosystems, and responsibility.",
+        ages: "7+",
+        rating: 4,
+        href: "https://www.amazon.com/dp/B07BK2PTFS?tag=eazyfamily-20",
+        img: null,
+      },
+      {
+        title: "National Geographic Kids Backpack Kit",
+        author: "National Geographic",
+        description: "Magnifying glass, compass, binoculars and more. Everything for a proper outdoor adventure.",
+        ages: "6–12",
+        rating: 4,
+        href: "https://www.amazon.com/dp/B07D4GFKBK?tag=eazyfamily-20",
+        img: null,
+      },
+    ]
+  },
+];
+
+const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n);
+---
+
+<Layout
+  title="Family Picks"
+  description="Eazy.Family-approved books, toys, and gear — hand-picked for modern families. Only products we genuinely recommend."
+  faqItems={[
+    { question: "How does Eazy.Family choose these products?", answer: "Every product on this page is hand-picked by the Eazy.Family team based on high ratings, genuine parent reviews, and alignment with our values: learning, outdoor play, and screen-conscious parenting. We only list products we would use ourselves." },
+    { question: "Does Eazy.Family earn a commission?", answer: "Yes. Some links on this page are affiliate links, meaning we may earn a small commission if you purchase through them at no extra cost to you. This helps us keep the app free." },
+  ]}
+>
+
+  <div style="max-width: 56rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+
+    <!-- Header -->
+    <div style="text-align: center; max-width: 36rem; margin: 0 auto 4rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; background: hsl(270 50% 14% / 0.7); border: 1px solid hsl(270 40% 28%); color: hsl(270 60% 82%); margin-bottom: 1.5rem;">Eazy.Family Approved</div>
+      <h1 style="font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;"><span class="grad-text">Family Picks</span></h1>
+      <p style="font-size: 1rem; line-height: 1.75; color: var(--text-secondary);">A small, curated selection of books, toys, and gear we genuinely recommend for modern families. No clutter — just the good stuff.</p>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Some links are affiliate links. We earn a small commission at no cost to you.</p>
+    </div>
+
+    <!-- Categories -->
+    {picks.map(category => (
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1rem; font-weight: 700; color: hsl(270 60% 72%); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem;">{category.category}</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          {category.items.map(item => (
+            <a href={item.href} target="_blank" rel="noopener noreferrer sponsored" style="text-decoration: none;" class="card" style="display: flex; flex-direction: column; border-radius: 1.25rem; padding: 1.5rem; transition: opacity 0.15s;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                <span style="font-size: 0.6875rem; padding: 0.2rem 0.625rem; border-radius: 9999px; background: hsl(270 50% 18%); color: hsl(270 60% 80%); font-weight: 500;">Ages {item.ages}</span>
+                <span style="font-size: 0.75rem; color: hsl(45 90% 60%); letter-spacing: 0.05em;">{stars(item.rating)}</span>
+              </div>
+              <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; line-height: 1.35;">{item.title}</h3>
+              <p style="font-size: 0.75rem; color: hsl(270 40% 60%); margin-bottom: 0.75rem;">{item.author}</p>
+              <p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; flex: 1;">{item.description}</p>
+              <div style="display: flex; align-items: center; gap: 0.375rem; margin-top: 1rem; font-size: 0.8125rem; color: hsl(270 60% 72%); font-weight: 500;">
+                View on Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA -->
+    <div class="card" style="text-align: center; border-radius: 1.5rem; padding: 3rem 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Keep your family organised</h2>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Eazy.Family brings your shared calendar, lists, and messaging together in one private space.</p>
+      <a href="https://app.eazy.family/onboarding" class="btn-primary">Get Started Free</a>
+    </div>
+
+  </div>
+</Layout>
