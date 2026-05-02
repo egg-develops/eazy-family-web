@@ -23,6 +23,12 @@ const { Content } = await render(post);
     datePublished: post.data.pubDate.toISOString(),
     author: post.data.author,
   }}
+  langSwitcherOverride={{
+    en: '/resources/blog',
+    de: '/de/resources/blog',
+    fr: '/fr/resources/blog',
+    it: '/it/resources/blog',
+  }}
 >
 
   <article style="max-width: 44rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
