@@ -49,11 +49,12 @@ const navLinks = [
   { href: currentLang === 'en' ? '/download' : `/${currentLang}/download`, label: currentLang === 'de' ? 'App laden' : currentLang === 'fr' ? 'Télécharger' : currentLang === 'it' ? "Scarica l'app" : 'Get the App' },
 ];
 
+const noLocalePages = ['/privacy', '/terms'];
 const langs = [
   { code: 'en', flag: '🇬🇧', label: 'EN', href: langSwitcherOverride?.en ?? basePath },
-  { code: 'de', flag: '🇩🇪', label: 'DE', href: langSwitcherOverride?.de ?? `/de${basePath === '/' ? '' : basePath}` },
-  { code: 'fr', flag: '🇫🇷', label: 'FR', href: langSwitcherOverride?.fr ?? `/fr${basePath === '/' ? '' : basePath}` },
-  { code: 'it', flag: '🇮🇹', label: 'IT', href: langSwitcherOverride?.it ?? `/it${basePath === '/' ? '' : basePath}` },
+  { code: 'de', flag: '🇩🇪', label: 'DE', href: langSwitcherOverride?.de ?? (noLocalePages.includes(basePath) ? basePath : `/de${basePath === '/' ? '' : basePath}`) },
+  { code: 'fr', flag: '🇫🇷', label: 'FR', href: langSwitcherOverride?.fr ?? (noLocalePages.includes(basePath) ? basePath : `/fr${basePath === '/' ? '' : basePath}`) },
+  { code: 'it', flag: '🇮🇹', label: 'IT', href: langSwitcherOverride?.it ?? (noLocalePages.includes(basePath) ? basePath : `/it${basePath === '/' ? '' : basePath}`) },
 ];
 
 const ctaHref = currentLang === 'en' ? 'https://app.eazy.family/onboarding' : 'https://app.eazy.family/onboarding';
