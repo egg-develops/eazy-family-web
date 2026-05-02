@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/de/resources/:path*", "destination": "/resources/:path*", "permanent": false },
+    { "source": "/fr/resources/:path*", "destination": "/resources/:path*", "permanent": false },
+    { "source": "/it/resources/:path*", "destination": "/resources/:path*", "permanent": false }
+  ]
+}
