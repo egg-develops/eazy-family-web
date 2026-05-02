@@ -1,0 +1,37 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(p => p.data.lang === 'de')
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="Blog" description="Tipps zur Familienorganisation, mehrsprachige Elternratgeber und Einblicke in die Nutzung von KI für ein einfacheres Familienleben." lang="de">
+  <div style="max-width: 48rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
+    <div style="margin-bottom: 2rem;">
+      <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+        <a href="/de/resources" style="color: var(--text-muted); text-decoration: none;">Ressourcen</a> /
+      </div>
+      <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-primary);">Blog</h1>
+      <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-top: 0.5rem;">Tipps, Ratgeber und Geschichten vom Eazy.Family-Team.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      {posts.map(post => (
+        <a href={`/resources/blog/${post.id}`} style="text-decoration: none; display: block;" class="card" style="border-radius: 1.25rem; padding: 1.5rem; transition: opacity 0.15s;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.625rem;">
+            {post.data.tags.slice(0, 3).map((tag: string) => (
+              <span style="font-size: 0.6875rem; padding: 0.2rem 0.625rem; border-radius: 9999px; background: hsl(270 50% 18%); color: hsl(270 60% 80%); font-weight: 500;">{tag}</span>
+            ))}
+          </div>
+          <h2 style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.4;">{post.data.title}</h2>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">{post.data.description}</p>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">
+            {post.data.pubDate.toLocaleDateString('de-CH', { year: 'numeric', month: 'long', day: 'numeric' })} · {post.data.author}
+          </div>
+        </a>
+      ))}
+      {posts.length === 0 && <p style="color: var(--text-muted);">Noch keine Beiträge auf Deutsch.</p>}
+    </div>
+  </div>
+</Layout>

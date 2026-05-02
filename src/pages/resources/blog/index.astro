@@ -5,13 +5,15 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const langLabels: Record<string, string> = { en: '🇬🇧 EN', de: '🇩🇪 DE', fr: '🇫🇷 FR', it: '🇮🇹 IT' };
 ---
 
 <Layout title="Blog" description="Family organization tips, multilingual parenting guides, and insights on using AI to simplify family life.">
 
   <div style="max-width: 48rem; margin: 0 auto; padding: 8rem 1.25rem 4rem;">
 
-    <div style="margin-bottom: 3rem;">
+    <div style="margin-bottom: 2rem;">
       <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">
         <a href="/resources" style="color: var(--text-muted); text-decoration: none;">Resources</a> /
       </div>
@@ -21,16 +23,32 @@ const posts = (await getCollection('blog')).sort(
       </p>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <!-- Language filter -->
+    <div id="lang-filter" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem;">
+      {['all', 'en', 'de', 'fr', 'it'].map(l => (
+        <button
+          data-lang={l}
+          style={`font-size: 0.75rem; padding: 0.35rem 0.875rem; border-radius: 9999px; border: 1px solid hsl(270 40% 22%); cursor: pointer; font-weight: 500; transition: all 0.15s; background: ${l === 'all' ? 'hsl(270 50% 18%)' : 'transparent'}; color: ${l === 'all' ? 'hsl(270 60% 82%)' : 'hsl(270 30% 60%)'};`}
+        >
+          {l === 'all' ? 'All' : langLabels[l]}
+        </button>
+      ))}
+    </div>
+
+    <div id="post-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
       {posts.map(post => (
-        <a href={`/resources/blog/${post.id}`} style="text-decoration: none; display: block;" class="card" style="border-radius: 1.25rem; padding: 1.5rem; transition: opacity 0.15s; hover:opacity-80">
+        <a
+          href={`/resources/blog/${post.id}`}
+          data-post-lang={post.data.lang}
+          style="text-decoration: none; display: block;"
+          class="card post-card"
+          style="border-radius: 1.25rem; padding: 1.5rem; transition: opacity 0.15s;"
+        >
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.625rem;">
             {post.data.tags.slice(0, 3).map((tag: string) => (
               <span style="font-size: 0.6875rem; padding: 0.2rem 0.625rem; border-radius: 9999px; background: hsl(270 50% 18%); color: hsl(270 60% 80%); font-weight: 500;">{tag}</span>
             ))}
-            {post.data.lang !== 'en' && (
-              <span style="font-size: 0.6875rem; padding: 0.2rem 0.625rem; border-radius: 9999px; background: hsl(270 30% 16%); color: hsl(270 40% 65%); font-weight: 500;">{post.data.lang.toUpperCase()}</span>
-            )}
+            <span style="font-size: 0.6875rem; padding: 0.2rem 0.625rem; border-radius: 9999px; background: hsl(270 30% 16%); color: hsl(270 40% 65%); font-weight: 500;">{langLabels[post.data.lang] ?? post.data.lang.toUpperCase()}</span>
           </div>
           <h2 style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.4;">{post.data.title}</h2>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">{post.data.description}</p>
@@ -41,5 +59,35 @@ const posts = (await getCollection('blog')).sort(
       ))}
     </div>
 
+    <p id="no-posts" style="display: none; color: var(--text-muted); font-size: 0.9375rem; text-align: center; padding: 3rem 0;">No posts in this language yet.</p>
+
   </div>
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#lang-filter button');
+  const cards = document.querySelectorAll<HTMLElement>('.post-card');
+  const noPostsMsg = document.getElementById('no-posts')!;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang!;
+
+      buttons.forEach(b => {
+        b.style.background = 'transparent';
+        b.style.color = 'hsl(270 30% 60%)';
+        b.style.borderColor = 'hsl(270 40% 22%)';
+      });
+      btn.style.background = 'hsl(270 50% 18%)';
+      btn.style.color = 'hsl(270 60% 82%)';
+
+      let visible = 0;
+      cards.forEach(card => {
+        const show = lang === 'all' || card.dataset.postLang === lang;
+        card.style.display = show ? 'block' : 'none';
+        if (show) visible++;
+      });
+      noPostsMsg.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+</script>
