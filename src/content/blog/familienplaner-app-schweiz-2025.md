@@ -2,6 +2,7 @@
 title: "Familienplaner App Schweiz 2026: Der ultimative Vergleich"
 description: "Welche Familienplaner-App passt am besten zu Schweizer Familien? Wir vergleichen die beliebtesten Apps und erklären, warum Mehrsprachigkeit so wichtig ist."
 pubDate: 2026-05-01
+author: "Eazy.Family Team"
 tags: ["Familienplaner", "Schweiz", "App", "Zürich", "mehrsprachig"]
 lang: de
 ---
